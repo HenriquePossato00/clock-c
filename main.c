@@ -8,36 +8,27 @@ int main()
     // arithemetic operators = + - * / % ++ --
 
     // Variables
-    double a = 0.0;
-    double b = 0.0;
-    double c = 0.0;
-    double x1 = 0.0;
-    double x2 = 0.0;
+    double radius = 0.0;
+    double area = 0.0;
+    double surfaceArea = 0.0;
+    double volume = 0.0;
+    const double PI = 3.14159; 
 
-    printf("Bhaskara Resolver\nA system that solves any quadratic equation.\n");
-    printf("\nType the values a, b, c in this equation: ax^2 + bx+ c = 0\n");
+    printf("Circle Calculator\n");
+    printf("\nType the radius value:\n");
 
     // Input
-    printf("a:");
-    scanf("%lf", &a);
+    scanf("%lf", &radius);
 
-    printf("b:");
-    scanf("%lf", &b);
+    area = PI * pow(radius, 2);
+    surfaceArea = 4 * (PI * pow(radius, 2));
+    volume = (4.0 / 3.0) * PI * pow(radius, 3);
 
-    printf("c:");
-    scanf("%lf", &c);
-
-    // Delta 
-    double delta = (b * b) - 4 * a * c;
-
-    // Finding delta quadratic root
-    double deltaRoot = sqrt(delta);
-
-    x1 = (-b + deltaRoot) / (2 * a);
-    x2 = (-b - deltaRoot) / (2 * a);
 
     // Output
-    printf("\nPossible Values:\nX1 = %lf\nX2 = %lf", x1, x2);
-
+    printf("Circle Area: %.2lf\n", area);
+    printf("Sphere Surface Area: %.2lf\n", surfaceArea);
+    printf("Sphere Volume Area: %.2lf\n", volume);
+    
     return 0;
 }
