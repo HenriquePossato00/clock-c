@@ -1,59 +1,43 @@
 #include <stdio.h>
 #include <stdbool.h>
+#include <math.h>
 
-int main() {
+int main()
+{
 
-    /*
-    Variable  = A reusable container for a value.
-                Behaves as if it were the value it contains.
-    */
+    // arithemetic operators = + - * / % ++ --
 
-    // integer = whole numbers (4bytes in modern systems)
-    int age = 23;
-    int debt = -100;
+    // Variables
+    double a = 0.0;
+    double b = 0.0;
+    double c = 0.0;
+    double x1 = 0.0;
+    double x2 = 0.0;
 
-    // float = single-precision decimal number (4 bytes)
-    float price = 19.99;
-    float temperature = -01.5;
+    printf("Bhaskara Resolver\nA system that solves any quadratic equation.\n");
+    printf("\nType the values a, b, c in this equation: ax^2 + bx+ c = 0\n");
 
-    // double = double-precision decimal number (8 bytes)
-    double pi = 3.14159265358979;
+    // Input
+    printf("a:");
+    scanf("%lf", &a);
 
-    // character = single charecter (1 byte)
-    char grade = 'A';
+    printf("b:");
+    scanf("%lf", &b);
 
-    // String = a array of characters
-    char name[] = "Henrique Rocha";
-    char food[] = "Pizza";
+    printf("c:");
+    scanf("%lf", &c);
 
-    // Booleans = true or false (1 byte, requires <stdbool.h>)
-    bool isOnline = true;
-    
-    // integer
-    printf("you are %d years old\n", age);
-    printf("Your debt is %d\n", debt);
+    // Delta 
+    double delta = (b * b) - 4 * a * c;
 
-    // float
-    printf("The price is %.2f\n", price);
-    printf("The temperature is %.1f ºC\n", temperature);
+    // Finding delta quadratic root
+    double deltaRoot = sqrt(delta);
 
-    // double
-    printf("Pi value: %.15lf\n", pi);
-    
-    // character
-    printf("Your grade is %c \n", grade);
-    
-    // String
-    printf("Hello %s \n", name);
-    printf("Your favorite food is %s \n", food);
-    
-    // Booleans
-    if(isOnline) {
-        printf("Hello %s \n", name);
-    } else {
-        printf("Please login");
-    }
-    
-    
+    x1 = (-b + deltaRoot) / (2 * a);
+    x2 = (-b - deltaRoot) / (2 * a);
+
+    // Output
+    printf("\nPossible Values:\nX1 = %lf\nX2 = %lf", x1, x2);
+
     return 0;
 }
