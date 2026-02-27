@@ -5,30 +5,42 @@
 int main()
 {
 
-    // arithemetic operators = + - * / % ++ --
+    // weitght converter program
 
     // Variables
-    double radius = 0.0;
-    double area = 0.0;
-    double surfaceArea = 0.0;
-    double volume = 0.0;
-    const double PI = 3.14159; 
-
-    printf("Circle Calculator\n");
-    printf("\nType the radius value:\n");
+    float convertConst = 2.2046;
+    float pounds = 0.0;
+    float kilograms = 0.0;    
+    int choice = 0;
 
     // Input
-    scanf("%lf", &radius);
+    printf("Weitght Converter Calculator\n");
+    printf("1. Kilograms to Pounds\n");
+    printf("2. Pounds to Kilograms\n");
+    printf("Enter your choice (1 or 2):");
+    
+    scanf("%d", &choice);
+    
+    if (choice == 1) {
+        // Kilogram to pounds
+        printf("Enter the weight in kilograms:");
+        scanf("%f", &kilograms);
+        pounds = kilograms * convertConst;
 
-    area = PI * pow(radius, 2);
-    surfaceArea = 4 * (PI * pow(radius, 2));
-    volume = (4.0 / 3.0) * PI * pow(radius, 3);
-
-
-    // Output
-    printf("Circle Area: %.2lf\n", area);
-    printf("Sphere Surface Area: %.2lf\n", surfaceArea);
-    printf("Sphere Volume Area: %.2lf\n", volume);
+        // Output
+        printf("%.2f Kilograms is equal to %.2f Pounds", kilograms, pounds);
+    } else if (choice == 2) {
+        // Pounds to kilograms
+        printf("Enter the weight in pounds:");
+        scanf("%lf", &pounds);
+        kilograms = pounds / convertConst;
+        
+        // Output
+        printf("%.2f Pounds is equal to %.2f Kilograms", pounds, kilograms);
+    } else {
+        // Output
+        printf("Invalid choice (1 or 2)!");
+    }
     
     return 0;
 }
