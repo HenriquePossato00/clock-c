@@ -5,42 +5,57 @@
 int main()
 {
 
-    // weitght converter program
+    float price = 10.00;
+    int input = 0;
+    bool isStudent = false; // 10% discount
+    bool isSenior = false;  // 20% discount
 
-    // Variables
-    float convertConst = 2.2046;
-    float pounds = 0.0;
-    float kilograms = 0.0;    
-    int choice = 0;
+    printf("Select your discount:\n");
+    printf("1. Student\n");
+    printf("2. Senior\n");
+    printf("3. Student + Senior\n");
+    scanf("%d", &input);
 
-    // Input
-    printf("Weitght Converter Calculator\n");
-    printf("1. Kilograms to Pounds\n");
-    printf("2. Pounds to Kilograms\n");
-    printf("Enter your choice (1 or 2):");
-    
-    scanf("%d", &choice);
-    
-    if (choice == 1) {
-        // Kilogram to pounds
-        printf("Enter the weight in kilograms:");
-        scanf("%f", &kilograms);
-        pounds = kilograms * convertConst;
-
-        // Output
-        printf("%.2f Kilograms is equal to %.2f Pounds", kilograms, pounds);
-    } else if (choice == 2) {
-        // Pounds to kilograms
-        printf("Enter the weight in pounds:");
-        scanf("%lf", &pounds);
-        kilograms = pounds / convertConst;
-        
-        // Output
-        printf("%.2f Pounds is equal to %.2f Kilograms", pounds, kilograms);
-    } else {
-        // Output
-        printf("Invalid choice (1 or 2)!");
+    switch (input)
+    {
+    case 1:
+        isStudent = true;
+        break;
+    case 2:
+        isSenior = true;
+        break;
+    case 3:
+        isStudent = true;
+        isSenior = true;
+        break;
+    default:
+        break;
     }
-    
+
+    if (isStudent)
+    {
+        if (isSenior)
+        {
+            printf("You get a student discout of 10%\n");
+            printf("You get a senior discout of 20%\n");
+            price *= 0.7;
+        }
+        else
+        {
+            printf("You get a student discout of 10%\n");
+            price *= 0.9;
+        }
+    }
+    else
+    {
+        if (isSenior)
+        {
+            printf("You get a senior discout of 20%\n");
+            price *= 0.8;
+        }
+    }
+
+    printf("The price of a ticket is: $%.2f\n", price);
+
     return 0;
 }
